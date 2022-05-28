@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const { MONGOURI } = require("./keys.js")
 const cors= require("cors")
 require("./Models/User.js")
+require('dotenv').config()
 
 const app = express();
 app.use(cors())

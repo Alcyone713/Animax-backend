@@ -77,7 +77,6 @@ router.get('/recommendations', requireLogin, async (req, res) => {
 
     let options = {
         mode: 'json',
-        pythonPath: process.env.PYTHON_PATH,
         scriptPath: './Python',
         args: completedArray
     }

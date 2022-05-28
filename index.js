@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(require('./Routes/auth.js'))
 app.use(require('./Routes/lists.js'))
 
+console.log(process.env)
 mongoose.connect( process.env.MONGODB_URI );
 mongoose.connection.on('connected', () => {
     console.log("Connected to MongoDB");

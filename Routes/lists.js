@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const User = mongoose.model("User")
 const requireLogin = require('../requireLoginMiddleware.js')
 const { PythonShell } = require('python-shell')
-const { PYTHON_PATH } = require('../keys.js')
+require('dotenv').config()
 
 
 //route to add animes to completed list
@@ -77,7 +77,7 @@ router.get('/recommendations', requireLogin, async (req, res) => {
 
     let options = {
         mode: 'json',
-        pythonPath: PYTHON_PATH,
+        pythonPath: process.env.PYTHON_PATH,
         scriptPath: './Python',
         args: completedArray
     }

@@ -3,9 +3,7 @@ from sklearn.preprocessing import MaxAbsScaler
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import re
 import sys
-import json
 
 anime = pd.read_csv("./Python/animes.csv")
 # anime = pd.read_csv("./animes.csv")

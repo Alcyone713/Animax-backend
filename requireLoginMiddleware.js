@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
-const { JWT_KEY } = require('./keys.js')
 const mongoose = require('mongoose')
 const User = mongoose.model("User")
+require('dotenv').config()
 
 //middlewares are functions that get executed before the required function
 //this middleware is checking if the user is logged in before accessing a protected resourse, like watchlists
@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
         return res.status(401).json({ error: "you must be logged in" })
     }
     const token = authorization.replace("Bearer ", "")
-    jwt.verify(token, JWT_KEY, (err, payload) => {
+    jwt.verify(token, process.env.JWT_KEY, (err, payload) => {
         if (err) {
             return res.status(401).json({ error: "you must be logged in" })
         }
